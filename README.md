@@ -1,6 +1,7 @@
-# eventarc_gke_firewall_change
-This is an simple cloud run app to handle GKE firewall events, and I just print the content out in this sample. \
-Ideally, it can be integreated with other IM like slack or others in the real world case. \
+# Trigger cloud run app to handle firewall change event when changing service port on GKE 
+This is an sample cloud run app with eventarc to handle GKE firewall change events. 
+Ideally, the app can be implemented like notifing IT admin when someone apply new/modified service to GKE cluster and open/change some network ports (new/modified firewall rules)   \
+In this sample code, I just print the content out in the log, but it can be integreated with other IM like slack or others in the real world case. \
 The idea of this one is similar to the official sample 
 [Receive a Cloud Audit Logs event](https://cloud.google.com/eventarc/docs/run/cal)
 In this case, we focus on the audit log event when applying a yaml file in GKE and trigger firewall event changed (like change ingress port from 30000 to 30001)
@@ -43,4 +44,8 @@ gcloud eventarc triggers create fw-events-trigger \
       --location=global \
       --service-account=<PROJECT_NUMBER>-compute@developer.gserviceaccount.com
 ```
+
+
+# Update a ingress with a different port
+Apply an updated ingress yaml file (to trigger a fw audit log)
 
