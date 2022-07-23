@@ -44,7 +44,8 @@ gcloud eventarc triggers create fw-events-trigger \
       --location=global \
       --service-account=<PROJECT_NUMBER>-compute@developer.gserviceaccount.com
 ```
-
+\
+methodName can be referred to [Supported event types by eventarc](https://cloud.google.com/eventarc/docs/reference/supported-events#using-cloud-audit-logs)
 
 # Update a ingress with a different port
 Apply an updated ingress yaml file (to trigger a fw audit log)
